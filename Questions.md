@@ -81,3 +81,31 @@ Output is going to be:
 Fragment can be helpful when you want to avoid some component to re-render
 
 ## 6. Give 3 examples of the HOC pattern.
+
+## 7. What's the difference in handling exceptions in promises, callbacks and async...await.
+
+To handle errors in promises we can use `.catch(e)` method and handle the error, using async and await we should wrap our async function with try and catch and handle the error in the `try{ }catch(e){}` block, when we use callback it's very common to receive an error parameter that we can handle `(error, response) => {}`.
+
+## 8. How many arguments does setState take and why is it async.
+
+Because it not modifies the state inmediately, so it's not a good practice to access the state inmediately after calling setState because it can possibly return the previous value.
+The second argument is the callback function and it's going to be executed once the state has been modified so you can be sure the function is going to use the new state. Very similar to what can we do using Hooks with useEffect and state as dependecy.
+
+## 9. List the steps needed to migrate a Class to Function Component.
+
+- Change the class to function
+- Remove render method
+- Change all methods to functions and erase this references.
+- We don't need constructors anymore so we can remove it, we can replace this.setState with useState
+- Use useEffect instead of callbacks or lifecycle methods like componentDidUpdate, componentWillUnmount, etc
+
+## 10. List a few ways styles can be used with components.
+
+- Global styles in index.html
+- CSS modules
+- Inline Styles
+- Using style property
+
+## 11. How to render an HTML string coming from the server.
+
+It's possible to use `dangerouslySetInnerHTML` but it's very dangerous so the best way to do it is to use RegExp (regular expressions) or the best way it's to find and use some libraries designed specifically for this like `react-html-parser`
