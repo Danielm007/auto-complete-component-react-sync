@@ -5,6 +5,10 @@
 We should use PureComponent if we want to optimize React Applications.
 When you use Component if the parent component re-renders then the child component re-renders it self but using PureComponent child re-renders itself only if props passed to it changes, don't care if parent component re-renders.
 
+Example:
+
+In case you have one component that makes API request to get some data, and it's contained on a Parent Element, every time parent re-render child is going to do it, that means making API request everytime parent re-render and that's not ideal, you have to be careful or you can start an infinite loop that might break your app.
+
 ## 2. Context + ShouldComponentUpdate might be dangerous. Can think of why is that?
 
 It's dangerous because ShouldComponentUpdate can block Context propagation if props or state in a component haven't been modified in a meaningful way.
@@ -81,6 +85,11 @@ Output is going to be:
 Fragment can be helpful when you want to avoid some component to re-render
 
 ## 6. Give 3 examples of the HOC pattern.
+
+Objective of HOC is to receive a component as a prop and turn in into a more powerful components and some functionlity
+
+- Redux (connect)
+- Redux (compose)
 
 ## 7. What's the difference in handling exceptions in promises, callbacks and async...await.
 
