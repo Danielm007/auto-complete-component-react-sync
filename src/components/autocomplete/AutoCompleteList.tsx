@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
-import { User } from "../models/user";
 import AutoCompleteOption from "./AutoCompleteOption";
 import styles from "./AutoCompleteList.module.css";
+import { User } from "../../models/user";
 
 interface AutoCompleteListProps {
   users: User[];

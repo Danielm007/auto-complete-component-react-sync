@@ -1,5 +1,5 @@
 import { FunctionComponent, MouseEvent } from "react";
-import { User } from "../models/user";
+import { User } from "../../models/user";
 import styles from "./AutoCompleteOption.module.css";
 
 interface AutoCompleteOptionProps {
@@ -15,7 +15,8 @@ const AutoCompleteOption: FunctionComponent<AutoCompleteOptionProps> = ({
 }) => {
   //Divide username word into parts
   const wordDivided = username.split(new RegExp(`(${name})`, "gi"));
-  //Build the text that is going to highlight the matches
+
+  //Build the text that is going to be highlighted
   const text = (
     <span>
       {wordDivided.map((part, i) =>
@@ -30,8 +31,6 @@ const AutoCompleteOption: FunctionComponent<AutoCompleteOptionProps> = ({
 
   // Click handler
   const onClickHandler = (event: MouseEvent<HTMLLIElement>) => {
-    console.log("Cambiado por ", username);
-
     event.preventDefault();
     selectOption(username);
   };
